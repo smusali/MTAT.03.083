@@ -3,7 +3,7 @@
 ## Overview
 This repository serves the purpose of demonstrating the work done by the group consisting of following members:
 * [Samir Musali](mailto:samir.musali@ut.ee)
-* [Eldaniz Akbarzade](mailto:eldaniz.akbarzade@ut.ee)
+* [Eldaniz Akbarzade](https://github.com/EldanizAkbar)
 * [Famil Babayev](mailto:famil.babayev@ut.ee)
 * [Mushfug Soltanov](mailto:mushfug.soltanov@ut.ee)
 
