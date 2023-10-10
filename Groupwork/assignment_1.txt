@@ -1,0 +1,32 @@
+MTAT.03.083_ENG: Assignment #1 - Class modelling | TÜ Moodle
+
+Assignment #1 - Class modelling
+Opened: 26.09.2023 00:00:00
+Due: 15.10.2023 23:59:00
+SM2023 assignment #1
+
+Task #1 (3 points): Please provide a description of the system you will be modelling in this course. Make sure that it matches the designed model as closely as possible and that all details (classes, their attributes, relationships between classes etc.) are specified in both the model and the description. Describe relationships between elements of the system (incl., multiplicity) to provide an unambiguous understanding of the system and the model implying from its description.
+
+NB: more details can / will be added as the project evolves, and you are expected to provide a description that satisfies the given task, i.e., class model for this assignment. Expected length – ½ - 1 A4 page. The system has to have several types of users (different roles), and the total number of classes should be higher than 5.
+
+Task #2 (5 points): Provide a class model for the system you described in Task #1. Make sure it is as detailed as necessary (!). Make sure you use at least the following elements: class, attributes, associations, generalization, enumeration, derived data, abstract class, qualifier, role.
+
+Task #3 (1 point*): What is the environment, which you choose to design your class diagram? What were the decisive factors to give the preference to this environment? (*+1 point): Does it allow you to generate the code from the designed model? If yes, what are your observations regarding the generated code? Have you identified any weakness in it? Does the code match the designed model? If not, were the expectations-reality differences due to deficiencies in the original model that you were forced to correct?
+
+Task #4 (1 point): Provide evidence that the work was conducted in a team (e.g., in the form of a link to the VCS; the screenshot of the above etc.).
+
+Task #5 (optional): Explore and document ChatGPT or other LLM capabilities in modelling class model (in addition to Task#2, but not instead!). Was it possible to achieve the same result that you obtained in Task #2? If not, what were the differences? What are strengths and weaknesses of ChatGPT in addressing this task? Had the use of ChatGPT allowed you to improve either the description (Task#1) or the model (Task#2)? E.g., check if something like this is possible feeding your model?
+
+What to submit? Please submit the homework as a single file – .pdf or a package, if more than one files where created - zip file or .7z file or .tar.gz via Moodle https://moodle.ut.ee/mod/assign/view.php?id=1195995
+
+MTAT.03.083_ENG: Assignment #1 - Class modelling | TÜ Moodle
+
+Please organize and name the files in the package clearly, so that it is clear which file(s) corresponding to the first task and which ones correspond to(MTAT.03.083) the second task.
+
+If you have completed the homework with another (teams of up to four), please write the name of your team-mate in the "Comments" field of the homework submission form. Only one submission per pair of students is needed.
+
+Reminder on plagiarism policy
+We don't want to have to say the following, but it's better to say it upfront. Please be reminded that plagiarism in any form is not tolerated. We will be reporting all cases where we have some evidence of plagiarism. You can get an F in the entire course due to a small amount of plagiarism. Whatever you submit, it must be 100% the product of the work of you and your teammate (using AI assistants if you wish). For the same reason, do not share your solution or a partial solution with others (except with your team-mate).
+
+Use of ChatGPT or other Large Language Models (LLMs)
+Notwithstanding the above note about plagiarism, you can use ChatGPT or similar LLM-based assistants for this homework, provided that you explicitly state in your homework which AI assistant(s) you have used. Warning: If you use them in a trivial manner, you will most likely get an answer that won't meet our requirements and expectations.
