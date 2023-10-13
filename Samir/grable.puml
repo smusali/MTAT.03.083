@@ -1,0 +1,131 @@
+@startuml GrableDigitalDiningPlatform
+
+' Enumeration for Order Status
+enum OrderStatus {
+  Pending
+  InProgress
+  Completed
+  Cancelled
+}
+
+' Enumeration for Payment Status
+enum PaymentStatus {
+  Unpaid
+  Paid
+  Refunded
+}
+
+' Enumeration for Transaction Status
+enum TransactionStatus {
+  Successful
+  Failed
+  Pending
+}
+
+' Enumeration for Payment Methods
+enum PaymentMethods {
+  Card
+  ApplePay
+  GooglePay
+}
+
+' Abstract class for Users
+abstract class User {
+  + id: Int
+  + Name: String
+  + ContactDetails: String
+  + created_at: DateTime
+  + updated_at: DateTime
+}
+
+' Derived class for Restaurants
+class Restaurant extends User {
+  + Location: String
+  + DynamicMenu: Menu
+  - modifyMenu(): void
+  - getMenu(): Menu
+  - setMenu(Menu): void
+}
+
+' Derived class for Diners
+class Diner extends User {
+  + DietaryPreferences: String[]
+  + PaymentMethods: PaymentMethods[]
+  - browseMenus(): void
+  - viewItemDetails(Item): void
+  - placeOrder(Order): void
+  - getOrders(): Order[]
+}
+
+' Class for Menu
+class Menu {
+  + id: Int
+  + Items: Item[]
+  + created_at: DateTime
+  + updated_at: DateTime
+  - addItem(Item): void
+  - removeItem(Item): void
+  - getItems(): Item[]
+}
+
+' Class for Item
+class Item {
+  + id: Int
+  + Name: String
+  + Ingredients: String[]
+  + DietarySpecifications: String
+  + Category: String
+  + Price: Float
+  + created_at: DateTime
+  + updated_at: DateTime
+  - setPrice(Float): void
+  - getPrice(): Float
+}
+
+' Class for Order
+class Order {
+  + id: Int
+  + SelectedItems: Item[]
+  + OrderDateAndTime: DateTime
+  + TableNumber: Int
+  + OrderStatus: OrderStatus
+  + PaymentStatus: PaymentStatus
+  + created_at: DateTime
+  + updated_at: DateTime
+  - addItem(Item): void
+  - removeItem(Item): void
+  - getItems(): Item[]
+}
+
+' Class for Payment
+class Payment {
+  + id: Int
+  + Amount: Float
+  + ChosenPaymentMethod: PaymentMethods
+  + TransactionStatus: TransactionStatus
+  + created_at: DateTime
+  + updated_at: DateTime
+  - processPayment(): void
+  - getTransactionStatus(): TransactionStatus
+}
+
+' Class for Notification
+class Notification {
+  + id: Int
+  + Description: String
+  + Trigger: String
+  + created_at: DateTime
+  + updated_at: DateTime
+  - sendNotification(): void
+}
+
+' Associations
+Restaurant --> Menu: "has"
+Menu --> Item: "contains"
+Diner --> Order: "places"
+Order --> Item: "includes"
+Diner --> Payment: "makes"
+Order --> Payment: "has"
+User --> Notification: "receives"
+
+@enduml

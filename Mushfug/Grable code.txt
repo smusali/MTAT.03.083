@@ -1,0 +1,81 @@
+@startuml
+
+class User {
+    -userId: String
+    -name: String
+    -contactDetails: String
+    +login(): void
+    +logout(): void
+}
+
+class EndUser {
+    -dietaryPreferences: String
+    -paymentMethods: String
+}
+
+class Restaurant {
+    -location: String
+}
+
+User <|-- EndUser
+User <|-- Restaurant
+
+class Menu {
+    -createdAt: DateTime
+    -updatedAt: DateTime
+}
+
+class Item {
+    -name: String
+    -ingredients: String
+    -dietarySpecifications: String
+    -category: { STARTER, MAIN, DESSERT, DRINK }
+    -price: float
+    -currency: String
+    -available: boolean
+}
+
+class Order {
+    -orderId: String
+    -table: int
+    -totalPrice: float
+    -currency: String
+    -timestamp: int
+}
+
+enum OrderStatus {
+    ORDERED,
+    ACCEPTED,
+    IN_PROGRESS,
+    READY,
+    DONE,
+    ARCHIVED
+}
+
+class Payment {
+    -paymentId: String
+    -amount: float
+}
+
+enum PaymentStatus {
+    INITIATED,
+    ON_HOLD,
+    PROCESSED
+}
+
+enum PaymentMethod {
+    CARD,
+    APPLE,
+    GOOGLE
+}
+
+Restaurant "1" --> "1" Menu: has
+Menu "1" --> "1..*" Item: contains
+EndUser "1" --> "1..*" Order: places
+Order "1" --> "1..*" Item: consists of
+Order "1" --> "1" OrderStatus
+Order "1" --> "1" Payment: paid by
+Payment "1" --> "1" PaymentStatus
+Payment "1" --> "1" PaymentMethod
+
+@enduml
