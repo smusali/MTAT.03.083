@@ -1,0 +1,77 @@
+Classes
+	User (Abstract Class):
+		Attributes:
+			uniqueIdentifier: String
+			name: String
+			phoneNumber: String
+			email: String
+		Methods:
+			createAccount(): void
+			authenticate(): void
+	Restaurant (subclass of User):
+		Attributes:
+			location: String (composite of address, city, state, postal code)
+			menu: Menu
+		Methods:
+			updateMenu(menuItem: MenuItem, operation: String): void (handles CRUD operations)
+			receivePayment(payment: Payment): void
+	Diner (subclass of User):
+		Attributes:
+			dietaryPreferences: String
+			paymentMethods: List<PaymentMethod> (complex type, not a class)
+		Methods:
+			placeOrder(order: Order): void
+			browseMenu(restaurant: Restaurant): List<MenuItem>
+	Menu:
+		Attributes:
+			items: List<MenuItem>
+		Methods:
+			addItem(item: MenuItem): void
+			removeItem(item: MenuItem): void
+			updateItem(item: MenuItem): void
+			getItem(id: String): MenuItem
+			listAvailableItems(): List<MenuItem>
+	MenuItem:
+		Attributes:
+			uniqueIdentifier: String
+			name: String
+			ingredients: String (aggregated details)
+			dietarySpecifications: String
+			category: Category (enumeration: APPETIZER, ENTREE, DESSERT)
+			price: Double
+			isAvailable: Boolean
+		Methods:
+			markAvailability(status: Boolean): void
+	Order:
+		Attributes:
+			uniqueIdentifier: String
+			items: List<MenuItem>
+			timestamp: DateTime
+			tableNumber: String
+			orderStatus: OrderStatus (enumeration: PENDING, IN_PROGRESS, COMPLETED, CANCELED)
+			paymentStatus: PaymentStatus (enumeration: UNPAID, PAID, REFUNDED)
+		Methods:
+			updateOrderStatus(status: OrderStatus): void
+			updatePaymentStatus(status: PaymentStatus): void
+	Payment:
+		Attributes:
+			amount: Double
+			paymentMethod: PaymentMethod (enumeration: CARD, APPLE_PAY, GOOGLE_PAY)
+			transactionStatus: TransactionStatus (enumeration: SUCCESSFUL, FAILED, PENDING)
+		Methods:
+			processPayment(): void
+			refundPayment(): void
+
+Relationships
+	Restaurant has a one-to-one relationship with Menu. Each restaurant has one menu, and each menu is associated with one restaurant.
+	Menu has a one-to-many relationship with MenuItem. A menu comprises multiple menu items.
+	Diner has a one-to-many relationship with Order. A diner can place multiple orders.
+	Order has a many-to-many relationship with MenuItem. An order can contain multiple menu items, and a menu item can be part of multiple orders.
+	Order has a one-to-one relationship with Payment. Each order initiates one payment process.
+	Restaurant and Diner are subclasses of User, indicating a generalization relationship where both restaurant and diner accounts share common attributes from the User class but also have unique features.
+
+Enumerations
+	OrderStatus: PENDING, IN_PROGRESS, COMPLETED, CANCELED
+	PaymentStatus: UNPAID, PAID, REFUNDED
+	TransactionStatus: SUCCESSFUL, FAILED, PENDING
+	PaymentMethod: CARD, APPLE_PAY, GOOGLE_PAY
