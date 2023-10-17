@@ -1,0 +1,90 @@
+@startuml
+
+enum PAYMENT_METHOD {
+  APPLE_PAY
+  GOOGLE_PAY
+  CARD
+}
+
+enum PAYMENT_STATUS {
+  UNPAID
+  PAID
+  REFUNDED
+}
+
+enum ORDER_STATUS {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+class User {
+  +name: string
+  +phoneNumber: string
+  +email: string
+  +createAccount(): void
+  +authenticate(): void
+}
+
+class Restaurant {
+  +location: string
+  +menu: Menu
+  +updateMenu(menuItem: MenuItem, operation: String): void
+  +receivePayment(payment: Payment): void
+}
+
+class Diner {
+  +dietaryPreferences: string
+  +paymentMethods: List<PAYMENT_METHOD>
+  +placeOrder(order: Order): void
+  +browseMenu(restaurant: Restaurant): List<MenuItem>
+}
+
+class Menu {
+  +menuItems: List<MenuItem>
+  +addItem(item: MenuItem): void
+  +removeItem(item: MenuItem): void
+  +updateItem(item: MenuItem): void
+  +getItem(id: string): MenuItem
+  +listAvailableItems(): List<MenuItem>
+}
+
+class MenuItem {
+  +name: string
+  +ingredients: string
+  +dietarySpecifications: string
+  +category: string
+  +price: double
+  +isAvailable: boolean
+  +updateAvailability(status: boolean): void
+}
+
+class Order {
+  +items: List<MenuItem>
+  +timestamp: datetime
+  +tableNumber: string
+  +orderStatus: ORDER_STATUS
+  +amount: double
+  +payment: Payment
+  +updateOrderStatus(status: ORDER_STATUS): void
+}
+
+class Payment {
+  +paymentMethod: PAYMENT_METHOD
+  +paymentStatus: PAYMENT_STATUS
+  +processPayment(): void
+  +refundPayment(): void
+  +updatePaymentStatus(status: PAYMENT_STATUS): void
+}
+
+User <|-- Restaurant
+User <|-- Diner
+
+Restaurant "1" -- "1" Menu
+Menu "1" -- "1..*" MenuItem
+Diner -- "placeOrder" Order: places
+Order -- "1..*" MenuItem
+Order -- "1" Payment
+
+@enduml
