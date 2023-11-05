@@ -1,0 +1,293 @@
+Use Cases
+1. Account Registration:
+    1. Primary Actor: Diner, Restaurant Manager
+    2. Goal: To create a new account on the Grable platform.
+    3. Preconditions: The actor has access to the platform's registration interface.
+    4. Postconditions: The actor has a registered account with a unique identifier and can access platform services.
+    5. Main Flow:
+        1. The actor selects the option to create a new account.
+        2. The actor provides the necessary information, including contact details and, for restaurants, geolocation data.
+        3. The system validates the information and creates a new account.
+        4. The system sends a confirmation to the actor's provided email address.
+2. Menu Item Management:
+    1. Primary Actor: Restaurant Manager
+    2. Goal: To perform CRUD operations on menu items.
+    3. Preconditions: The actor is logged into their restaurant account.
+    4. Postconditions: The menu reflects the changes made by the restaurant manager.
+    5. Main Flow:
+        1. The actor accesses the menu management interface.
+        2. The actor selects an operation: create, retrieve, update, or delete a menu item.
+        3. The system processes the request and updates the menu database accordingly.
+        4. The system confirms the successful operation to the actor.
+3. Browse Menu:
+    1. Primary Actor: Diner
+    2. Goal: To view the current menu offerings from a restaurant.
+    3. Preconditions: The diner is logged into their account.
+    4. Postconditions: The diner has viewed the available menu items.
+    5. Main Flow:
+        1. The diner selects a restaurant to view its menu.
+        2. The system retrieves and displays the current menu items, including availability.
+        3. The diner browses through the menu items.
+4. Place Order:
+    1. Primary Actor: Diner
+    2. Goal: To place an order for menu items.
+    3. Preconditions: The diner has browsed the menu and selected items.
+    4. Postconditions: The order is placed and recorded in the system.
+    5. Main Flow:
+        1. The diner adds desired menu items to their order.
+        2. The diner provides necessary details, such as table number.
+        3. The system records the order with a unique identifier and timestamp.
+        4. The system updates the order status to 'Pending'.
+5. Payment Processing:
+    1. Primary Actor: Diner
+    2. Goal: To process payment for an order.
+    3. Preconditions: The diner has placed an order and chosen a payment method.
+    4. Postconditions: The payment is processed, and the status is updated.
+    5. Main Flow:
+        1. The diner selects a payment method from their digital wallet.
+        2. The system interfaces with the payment service to process the transaction.
+        3. The system updates the payment status and records the transaction details.
+6. Order Status Update:
+    1. Primary Actor: Restaurant Manager
+    2. Goal: To update the status of an order.
+    3. Preconditions: An order has been placed by a diner.
+    4. Postconditions: The order status reflects the current state of the order.
+    5. Main Flow:
+        1. The restaurant manager accesses the order management interface.
+        2. The manager selects an order and updates its status (e.g., 'In-Progress', 'Completed').
+        3. The system records the status change and notifies the diner.
+7. System Monitoring:
+    1. Primary Actor: System Administrator
+    2. Goal: To monitor system performance and detect anomalies.
+    3. Preconditions: The system is in operation.
+    4. Postconditions: The system's performance is assessed, and any issues are identified.
+    5. Main Flow:
+        1. The system administrator accesses the monitoring dashboard.
+        2. The system provides real-time data on system performance and logs.
+        3. The administrator reviews the information and takes action if irregularities are detected.
+8. User Authentication:
+    1. Primary Actor: Diner, Restaurant Manager
+    2. Goal: To authenticate a user's access to their account.
+    3. Preconditions: The actor has an account and attempts to log in.
+    4. Postconditions: The actor is either granted or denied access based on authentication.
+    5. Main Flow:
+        1. The actor inputs their credentials.
+        2. The system verifies the credentials against stored data.
+        3. The system grants access if the credentials match; otherwise, it denies access.
+9. Notification Management:
+    1. Primary Actor: System
+    2. Goal: To send notifications to users regarding order and payment updates.
+    3. Preconditions: An order or payment status has changed.
+    4. Postconditions: The user is informed of the update.
+    5. Main Flow:
+        1. The system detects a change in order or payment status.
+        2. The system generates a notification message.
+        3. The system sends the notification to the appropriate user's device.
+10. Account Management:
+    1. Primary Actor: Diner, Restaurant Manager
+    2. Goal: To manage account details and preferences.
+    3. Preconditions: The actor is logged into their account.
+    4. Postconditions: The account details are updated as per the actor's request.
+    5. Main Flow:
+        1. The actor accesses the account settings interface.
+        2. The actor updates their contact information, dietary preferences, or payment methods.
+        3. The system validates and saves the changes to the user profile.
+
+Actors
+1. Diner:
+    1. Description: An individual who uses the Grable platform to browse menus, place orders, and make payments. They have a profile with personal details, dietary preferences, and a digital wallet.
+    2. Attributes: Unique identifier, personal details, dietary preferences, digital wallet.
+    3. Interactions: Registers an account, browses menus, places orders, makes payments, receives notifications, and manages their account.
+2. Restaurant Manager:
+    1. Description: A restaurant representative who manages the establishment's presence on the Grable platform. They manage menu items, order status updates, and receive transaction reports.
+    2. Attributes: Unique identifier, contact information, geolocation data of the restaurant.
+    3. Interactions: Registers the restaurant, performs CRUD operations on menu items, updates order statuses, and manages restaurant account details.
+3. System Administrator:
+    1. Description: The individual responsible for the maintenance and monitoring of the Grable platform. They ensure the system's performance and security.
+    2. Attributes: Access to system monitoring tools and logs.
+    3. Interactions: Monitors system performance, detects and responds to anomalies, manages user support, and oversees system integrity.
+4. Payment Service:
+    1. Description: An external system that processes payments made by diners on the Grable platform. It is an actor as it interacts with the system to complete transactions.
+    2. Attributes: Supports various payment methods and transaction details.
+    3. Interactions: Processes payments, records transaction details, updates payment statuses, and interfaces with diners' digital wallets.
+
+Associations
+1. User-to-System Interaction: This association represents the direct interactions users (diners and restaurant managers) have with the Grable platform, such as account registration, menu browsing, and order placement.
+2. System to External Service Interaction: This association covers the interactions between the Grable platform and external systems like payment services, which are crucial for completing transactions.
+3. Administrative Oversight: The relationship between system administrators and the Grable platform, where administrators have the authority to monitor and maintain system performance.
+4. Data Management: Represents the CRUD operations that restaurant managers perform on menu items, reflecting the dynamic nature of the data within the system.
+
+Generalizations
+1. User Generalization: Both diners and restaurant managers are generalized as system users, sharing standard functionalities like authentication and notification receipt.
+2. System Role Generalization: System administrators and restaurant managers are generalized as system roles with different levels of access and control over the platform's functionalities.
+
+Relationships
+1. Extend Relationship:
+    1. Name: Order Modification
+    2. Base Use Case: Place Order
+    3. Extended Use Case: Modify Order
+    4. Condition: The diner decides to change their order before it is finalized.
+    5. Description: The Modify Order use case extends the Place Order use case, allowing diners to update their order under certain conditions.
+2. Include Relationship:
+    1. Name: Payment Authorization
+    2. Primary Use Case: Payment Processing
+    3. Included Use Case: User Authentication
+    4. Description: Every time a payment is processed, the User Authentication use case is included to ensure the payment is authorized and secure.
+
+Use Case Descriptions
+Dynamic Menu Update
+Primary Actor: Restaurant Manager
+
+Stakeholders and Interests:
+* Restaurant Manager: Aims to maintain an appealing and current menu to attract and satisfy diners, ensuring the restaurant's competitive edge and revenue stream.
+* Diners: Seek a seamless, informative, and up-to-date digital menu experience that caters to their dietary needs and preferences, enhancing their dining experience.
+* System Administrator: Dedicated to maintaining system uptime, ensuring data integrity, and providing a robust platform that can handle frequent updates and high user traffic without performance degradation.
+
+Preconditions:
+* The restaurant manager must be authenticated with a secure login process to ensurethat only authorized personnel can change the menu.
+* The system must be fully operational, with all services running correctly, including the database server, application server, and any related APIs or external services that support menu management.
+* The restaurant manager has been trained and is knowledgeable about the menu management interface and the procedures for updating menu items.
+
+Postconditions:
+* The menu database accurately reflects the changes made by the restaurant manager without any data loss or corruption.
+* Diners have immediate access to the latest menu information, ensuring a positive user experience and aiding decision-making.
+* The system logs all changes for audit purposes and potential rollback if needed.
+
+Main Success Scenario:
+1. The restaurant manager initiates a secure login process to access the Grable platform, providing their credentials.
+2. Upon successful authentication, the system presents the main dashboard. The manager navigates to the menu management module, a specialized interface for menu updates.
+3. Within the menu management module, the manager is presented with options to add, update, or delete menu items. They select the desired operation.
+4. For adding a new item, the manager is prompted to enter detailed information, such as the item's name, description, ingredients, dietary specifications (e.g., gluten-free, vegan), the category (e.g., appetizer, main course), pricing details, and the item's current availability status.
+5. If an existing item is updated, the system retrieves the current item details, which the manager can modify. This includes changes to ingredients due to supplier updates, pricing adjustments due to cost changes, or availability toggles based on stock levels.
+6. The system performs real-time validation on the input data, checking for completeness, format consistency, and any logical errors (such as pricing below cost).
+7. The manager reviews all changes and submits them for system processing. The system then updates the menu database transactionally to prevent data inconsistencies.
+8. The system's front end immediately reflects the changes, ensuring diners accessing the menu see the most current offerings.
+9. The restaurant manager receives visual and textual confirmation of the successful update, including a summary of the changes made.
+10. The system logs the update, capturing the manager's identifier, timestamp, and the nature of the changes for traceability.
+
+Extensions:
+* 4a: If the manager attempts to enter a new menu item that already exists, the system suggests reviewing the existing item to prevent duplicates.
+* 5a: The system provides an option to temporarily turn off a menu item instead of deleting it, preserving historical data and allowing for easy reactivation.
+* 6a: If the validation process detects discrepancies, the system provides detailed feedback to the manager, highlighting the fields that require attention.
+* 6b: The system includes a 'draft mode' for menu updates, allowing the manager to save progress without immediately affecting the live menu.
+* 7a: The system implements an approval workflow for specific changes, such as significant price increases, which a higher authority must review before going live.
+* 8a: The system supports a 'preview' feature, enabling the manager to see how changes would appear on the diner's interface before finalizing the update.
+* 9a: The system sends a detailed update report to the manager's email for record-keeping.
+* 9b: The system offers a rollback feature, allowing the manager to revert to the previous menu state if an error is detected post-update.
+
+Frequency of Occurrence: This use case is expected to occur multiple times throughout the day, as menu updates are a regular part of restaurant operations to reflect inventory changes, special promotions, or to accommodate customer feedback.
+
+Special Requirements:
+* The system must be capable of handling high-frequency updates, especially during peak restaurant hours.
+* The menu management interface should be user-friendly, minimizing the potential for user error during the update process.
+* The system should be designed to handle concurrent updates from multiple managers if the restaurant operates across different locations.
+
+Technology and Data Variations List:
+* The system should be accessible across various devices, including desktops, tablets, and smartphones, to accommodate the manager's mobility.
+* The menu management module should support bulk updates, allowing for efficient management of menu items.
+
+Open Issues:
+* How will the system handle menu updates during network outages or system maintenance periods?
+* What measures are in place to prevent unauthorized access to the menu management module?
+
+Order Fulfillment and Tracking
+Primary Actor: Restaurant Manager
+
+Stakeholders and Interests:
+* Restaurant Manager: Optimizes order fulfillment to ensure accuracy, efficiency, and customer satisfaction. Interested in utilizing system capabilities to manage peak times and special requests effectively.
+* Diners: Expect a seamless ordering experience, timely updates, and accurate fulfillment of their orders. They are also interested in the ability to track their order in real-time and receive prompt resolution of any issues.
+* Kitchen Staff: Depend on clear and timely communication of order details to prepare dishes according to the diner's expectations.
+* System Administrator: Ensures the order management system is robust, reliable, and capable of handling high volumes of concurrent orders. They are also responsible for setting up automated alerts for system anomalies and maintaining uptime.
+
+Preconditions:
+* The diner has successfully placed an order through the Grable platform, which includes a selection of menu items, any special instructions, and a designated pickup or delivery time.
+* The restaurant manager is logged into the Grable platform with the correct credentials and has access to the latest version of the order management interface.
+* The kitchen staff is on duty and has been briefed on the current menu offerings, including any out-of-stock items or substitutions.
+
+Postconditions:
+* The diner's order is prepared as requested, and the status is accurately reflected in the system at each stage.
+* The diner receives timely notifications about the status of their order, including any changes or delays.
+* The system's order history is updated with the transaction details, including timestamps and any diner feedback received post-fulfillment.
+
+Main Success Scenario:
+1. The diner selects their desired menu items on the Grable platform, adds any special instructions, and completes the order process.
+2. The restaurant manager is alerted to the new order via a push notification on the Grable management interface.
+3. The manager opens the new order notification, which displays the order details, including special instructions or requests.
+4. The manager assesses the availability of the menu items ordered and the current kitchen workload to estimate an accurate fulfillment time.
+5. The manager confirms the order with the kitchen staff, highlighting any special instructions or dietary requirements.
+6. The kitchen staff acknowledges the order and begins preparation, using a digital kitchen display system that prioritizes orders by their fulfillment times.
+7. As each order item is prepared, the kitchen staff updates its status, which is reflected in real-time on the management interface.
+8. Once all items are prepared, the manager performs a quality check to ensure the order meets the establishment's standards and the diner's requests.
+9. The manager updates the order status to 'Ready for Pickup/Delivery' and ensures the order is handed off to the correct diner or delivery personnel.
+10. The diner receives a notification that their order is ready, along with any pickup or delivery information.
+11. After the order is picked up or delivered, the manager updates the status to 'Completed' and invites the diner to provide feedback through the Grable platform.
+12. The system logs the entire process, capturing detailed timestamps and diner feedback for quality assurance and future reference.
+
+Extensions:
+* 3a: If the diner has requested an item currently out of stock, the system immediately flags this to the restaurant manager.
+    * 3a1: The restaurant manager contacts the diner through the Grable platform to suggest alternatives or offer a refund for the unavailable item.
+    * 3a2: The diner responds with their preference, and the manager updates the order accordingly.
+* 4a: If the kitchen is experiencing high volumes and cannot fulfill the order in the standard time frame, the manager adjusts the expected ready time.
+    * 4a1: The manager proactively informs the diner of the delay through the platform and offers a discount or complimentary item as compensation.
+* 7a: If there is a discrepancy in the preparation of an order item (e.g., incorrect ingredients), the kitchen staff immediately informs the manager.
+    * 7a1: The manager decides whether to restart the preparation of the item or contact the diner for a potential substitution.
+* 9a: If the diner has not arrived for pickup or the delivery personnel is delayed, the manager updates the order status to 'Awaiting Pickup/Delivery' and secures the order to maintain quality.
+    * 9a1: The manager may contact the diner or delivery personnel to confirm the new pickup or delivery time.
+
+Frequency of Occurrence: This process occurs continuously throughout the restaurant's operating hours and is designed to handle multiple orders simultaneously.
+
+Secure Payment Transaction
+Primary Actor: Diner
+
+Stakeholders and Interests:
+* Diner: Seeks a secure, efficient, and user-friendly payment experience with multiple payment options and immediate confirmation.
+* Restaurant Manager: Requires a reliable and accurate transaction process for seamless financial operations and real-time sales tracking.
+* Payment Service: Aims to provide a robust, secure, and swift payment processing service while maintaining diner confidentiality and trust.
+* System Administrator: Ensures the integrity of the payment process, the security of transaction data, and the seamless integration of payment services with the Grable platform.
+
+Preconditions:
+* The diner has an active and authenticated session on the Grable platform.
+* The diner's digital wallet has at least one valid payment method.
+* The payment service has been tested and functions correctly, with all security protocols in place.
+* The restaurant's menu and pricing are up-to-date, and the system can calculate the total cost, including taxes and applicable service charges.
+
+Postconditions:
+* The diner receives an explicit and detailed payment confirmation, including a digital receipt.
+* The restaurant's account reflects the transaction accurately, with a breakdown of the payment received and the commission deducted.
+* The system has logged all transaction details in a secure and compliant manner, accessible for future audits or queries.
+
+Main Success Scenario:
+1. The diner reviews their order summary, confirming the items and total amount due.
+2. The diner selects the 'Proceed to Payment' option within the Grable platform.
+3. The system gives the diner a choice of payment methods from their digital wallet, including credit/debit cards, online banking, digital currencies, or mobile payment services.
+4. The diner selects their preferred payment method, and the system displays a detailed payment authorization form, including the total amount, billing details, and a summary of the order.
+5. The diner verifies the information and confirms the payment by entering a secure PIN, password, or biometric authentication, depending on the chosen payment method.
+6. The system initiates an encrypted session with the payment service, transmitting the payment details securely.
+7. The payment service validates the transaction, performs anti-fraud checks, and processes the payment.
+8. Upon successful transaction processing, the payment service sends a digital token representing the payment confirmation back to the Grable platform.
+9. The Grable system updates the order status to 'Paid', logs the transaction details, including a timestamp and the unique transaction ID, and immediately sends a payment confirmation notification to the diner's device.
+10. The restaurant manager receives a real-time update on the transaction, allowing them to proceed with order fulfillment.
+11. The system archives the transaction data in compliance with data protection regulations and prepares the data for end-of-day financial reconciliation.
+
+Extensions:
+* 3a: If the diner's preferred payment method is unavailable, the system suggests alternative methods.
+* 5a: If the diner enters incorrect payment credentials, the system provides a clear error message and the opportunity to re-enter the correct details or choose another payment method.
+* 7a: If the payment service detects potential fraud, it flags the transaction for review, and the diner is contacted by the payment service's fraud prevention team.
+* 8a: If the payment service cannot process the payment due to technical issues, it informs the Grable system, which notifies the diner of the service disruption and suggests alternative payment methods or the option to retry later.
+* 9a: If the diner does not receive a payment confirmation due to connectivity issues, the system is designed to retry the notification or provide an alternative confirmation means, such as email or SMS.
+
+Special Requirements:
+* The system must comply with the Payment Card Industry Data Security Standard (PCI DSS) for handling credit card information.
+* The payment process should not exceed a predefined time limit to ensure diner satisfaction.
+* The user interface for the payment process must be accessible and user-friendly, accommodating various user preferences and abilities.
+
+Technology and Data Variations List:
+* The system must support various device types and operating systems used by diners.
+* Payment processing must accommodate different bandwidths and connectivity scenarios, ensuring robust transaction processing even in lower-quality network conditions.
+
+Frequency of Occurrence: This use case occurs every time a diner completes an order and initiates a payment, ranging from several times a minute to hundreds of times per day, depending on the platform's usage.
+
+Open Issues:
+* What measures are in place to handle a large volume of simultaneous transactions?
+* How does the system handle chargebacks or disputed transactions?
+* What is the process for updating payment methods within the diner's digital wallet?

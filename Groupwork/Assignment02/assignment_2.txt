@@ -1,0 +1,32 @@
+MTAT.03.083: Assignment #2 - Use-case and sequence models | TÜ Moodle
+
+Assignment #2 - Use-case and sequence models
+Opened: 24.10.2023 00:00:00
+Due: 12.11.2023 23:59:00
+SM2023 assignment #2
+
+Task #1 (1 points): Please provide an updated description of the system you are modelling. Make sure that it matches the designed model as closely as possible and that all details (previously - classes, their attributes, relationships between classes etc., now – also actors, use-cases, operations etc.) are specified in both the model and the description.
+
+NB: Expected length – ½ - 1 A4 page.
+
+Task #2 (4 points): Provide a use-case model(s) for the system you described in Task #1. Make sure it is as detailed as necessary (!). Make sure that you model (s) has at least 10 use-cases, 4 actors, four association types, including generalization (of two types), “extend”, “include” relationships, 3 use-case descriptions.
+
+Task #3 (4 points): Provide at least three sequence diagrams for the system you described in Task #1. Make sure you use at least two frames.
+
+Task #4 (0.5 point): What is the environment, which you choose to design your use-case diagram and sequence diagram? What were the decisive factors to give the preference to this environment(s)?
+
+Task #5 (0.5 point): Provide evidence that the work was conducted in a team (e.g., in the form of a link to the VCS; the screenshot of the above etc.).
+
+Task #6 (optional): Explore and document ChatGPT or other LLM capabilities in modelling use-case model and sequence diagram model (in addition to Task#2 and #3, but not instead!). Was it possible to achieve the same result that you obtained in Task #2 and #3? If not, what were the differences? What are strengths and weaknesses of ChatGPT in addressing this task? Had the use of ChatGPT allowed you to improve either the description (Task#1) or the model (Task#2, #3)?
+
+What to submit? Please submit the homework as a single file – .pdf or a package, if more than one files where created - zip file or .7z file or .tar.gz via Moodle
+
+Please organize and name the files in the package clearly, so that it is clear which file(s) corresponding to the first task and which ones correspond to the second task.
+
+If you have completed the homework with another student (teams of two), please write the name of your team-mate in the "Comments" field of the homework submission form. Only one submission per pair of students is needed.
+
+Reminder on plagiarism policy: We don't want to have to say the following, but it's better to say it upfront. Please be reminded that plagiarism in any form is not tolerated. We will be reporting all cases where we have some evidence of plagiarism. You can get an F in the entire course due to a small amount of plagiarism. Whatever you submit, it must be 100% the product of the work of you and your team-
+mate (using AI assistants if you wish). For the same reason, do not share your solution or a partial solution with others
+(except with your team-mate).
+
+Use of ChatGPT or other Large Language Models (LLMs): Notwithstanding the above note about plagiarism, you can use ChatGPT or similar LLM-based assistants for this homework, provided that you explicitly state in your homework which AI assistant(s) you have used. Warning: If you use them in a trivial manner, you will most likely get an answer that won't meet our requirements and expectations.
